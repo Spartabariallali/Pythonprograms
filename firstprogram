@@ -1,0 +1,22 @@
+
+import math
+
+def bill_calc(total, amount_of_people):
+    if amount_of_people <= 1:
+        raise ValueError("More than 1 person is required to split the bill")
+    return math.ceil(total/amount_of_people)
+
+try:
+    total = float(input("what is the total cost of the meal?: "))
+    amount_of_people = float(input("how many people attended the meal?: "))
+    amount_due = bill_calc(total,amount_of_people)
+except ValueError as err: 
+    print("That is not a valid value, please try again...")
+    print("{}".format(err))
+except SyntaxError:
+    print("***>>>Please enter a numerical value<<<***")
+else:
+    print("each person owes ${}".format(amount_due))
+
+
+
